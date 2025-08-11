@@ -7,9 +7,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -45,9 +45,18 @@ public class CustomizedMarkerIconsDemo extends AbstractGoogleMapsDemo {
 
     // marker using a MarkerIcon, url icon image + customization
     MarkerIcon markerIcon = new MarkerIcon(Markers.GREEN);
-    markerIcon.setAnchor(new GoogleMapPoint(15.0, 10.0));
-    gmaps.addMarker(new GoogleMapMarker("Marker with MarkerIcon defining url and anchor points",
-        new LatLon(-31.636027, -60.703253), false, markerIcon));
+    markerIcon.setAnchor(new GoogleMapPoint(0.0, 0.0));
+    markerIcon.setLabelOrigin(new GoogleMapPoint(0.0, 10.0));
+
+   MarkerLabel label = new MarkerLabel("Flowing Code");
+   label.setColor("blue");
+   label.setFontSize("16px");
+   label.setFontWeight("bold");
+
+   GoogleMapMarker marker = new GoogleMapMarker("Marker with MarkerIcon defining url and anchor points",
+       new LatLon(-31.636027, -60.703253), false, markerIcon);
+    marker.setLabel(label);
+    gmaps.addMarker(marker);
 
     // marker using a Symbol, svg path for the icon's image + customization
     Symbol symbol = new Symbol(
@@ -63,5 +72,5 @@ public class CustomizedMarkerIconsDemo extends AbstractGoogleMapsDemo {
 
     add(gmaps);
   }
-  
+
 }
