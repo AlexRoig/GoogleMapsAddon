@@ -3,8 +3,10 @@ package com.flowingcode.vaadin.addons.googlemaps;
 import elemental.json.Json;
 import elemental.json.JsonObject;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -14,8 +16,9 @@ import java.util.Optional;
 @Setter
 public class MarkerLabel {
     /**
-     * The text to be displayed in the label.
+     * The text to be displayed in the label. Required field.
      */
+    @NonNull
     private String text;
 
     /**
@@ -56,18 +59,18 @@ public class MarkerLabel {
 
 
     public MarkerLabel(String text) {
-        this.text = text;
+        this.text = Objects.requireNonNull(text, "Text cannot be null");
     }
 
     public MarkerLabel(String text, String color, String fontSize) {
-        this.text = text;
+        this.text = Objects.requireNonNull(text, "Text cannot be null");
         this.color = color;
         this.fontSize = fontSize;
     }
 
     protected JsonObject getJson() {
         JsonObject js = Json.createObject();
-        Optional.ofNullable(getText()).ifPresent(value -> js.put("text", value));
+        Optional.of(getText()).ifPresent(value -> js.put("text", value));
         Optional.ofNullable(getColor()).ifPresent(value -> js.put("color", value));
         Optional.ofNullable(getFontFamily()).ifPresent(value -> js.put("fontFamily", value));
         Optional.ofNullable(getFontSize()).ifPresent(value -> js.put("fontSize", value));
