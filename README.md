@@ -24,6 +24,10 @@ Vaadin Flow add-on for [Google Maps Web Component](https://github.com/FlowingCod
 * Obtain map bounds
 * & more
 
+## Supported versions
+
+Supported versions: Vaadin 14-25 (add-on version 2.x)
+
 ## Online demo
 
 [Online demo here](http://addonsv24.flowingcode.com/googlemaps)
