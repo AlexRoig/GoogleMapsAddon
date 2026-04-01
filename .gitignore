@@ -8,8 +8,8 @@
 /.classpath
 /.project
 /node
-tsconfig.json
-types.d.ts
+/tsconfig.json*
+/types.d.ts*
 vite.generated.ts
 vite.config.ts
 /frontend/generated
@@ -18,3 +18,4 @@ vite.config.ts
 /src/main/bundles
 /src/main/frontend/generated
 /src/main/frontend/index.html
+/.claude/settings.local.json
